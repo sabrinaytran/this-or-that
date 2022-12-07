@@ -1,20 +1,17 @@
-import cutekitties from './cutekitties.png';
 import { useState } from 'react';
 import './App.css';
+import Choices from './components/Choices';
+import Startpage from './components/Startpage';
 
 function App() {
   const [clicked, setClicked] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={cutekitties} className="App-logo" alt="logo" />
-        <button 
-          className='Start-button'
-          onClick={() => setClicked(!clicked)}
-        >Start
-        </button>
-        <p className='Title'>This or That</p>
-        {clicked && <p>YAY</p>}
+        {clicked ?
+        <Choices name={"This or That?"}></Choices>
+        :
+        <Startpage clicked={clicked} setClicked={setClicked}></Startpage>}
       </header>
     </div>
   );

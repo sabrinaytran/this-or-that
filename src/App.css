@@ -2,15 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {}
-}
-
 .App-header {
   background-color: #fdd9c3;
   min-height: 100vh;
@@ -23,11 +14,6 @@
   color: rgb(3, 3, 3);
 }
 
-.Start-button {
-  margin-top: -6rem;
-  margin-left: 1rem;
-}
-
 .Title {
-  margin-top: 5rem;
+  margin-top: 0rem;
 }
