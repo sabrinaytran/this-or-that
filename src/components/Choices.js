@@ -13,8 +13,8 @@ function Choices(props) {
     }
     return (
         <div>
-            <img src={CHOICES_LIST[choiceNumber][0]} alt={"xxxxx"}></img>
-            <img src={CHOICES_LIST[choiceNumber][1]} alt={"xxxxx"}></img>
+            <img className="choices" src={CHOICES_LIST[choiceNumber][0]} alt={"xxxxx"}></img>
+            <img className="choices" src={CHOICES_LIST[choiceNumber][1]} alt={"xxxxx"}></img>
             <p> This or That?</p>
             {(choiceNumber < CHOICES_LIST.length - 1) &&
                 <button className='Next' onClick={next}>Next</button>
