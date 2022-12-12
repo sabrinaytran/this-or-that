@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Choices from './components/Choices';
 import Startpage from './components/Startpage';
+import Resultspage from './components/Resultspage';
+import Datapage from './components/Datapage';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, query, collection, getDocs } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 
 const firebaseConfig = {
@@ -21,7 +23,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 const addData = async (choiceOne, choiceTwo) => {
   // Add a new document in collection "responses"
@@ -31,19 +33,24 @@ const addData = async (choiceOne, choiceTwo) => {
   });
 }
 
-
 function App() {
-  const [clicked, setClicked] = useState(false);
+  const [page, setPage] = useState('Startpage');
+  const [selections, setSelections] = useState([])
+
   return (
     <div className="App">
       <header className="App-header">
-        {clicked ?
-        <Choices name={"This or That?"}></Choices>
-        :
-        <Startpage clicked={clicked} setClicked={setClicked}></Startpage>}
+        {(page === 'Startpage' &&
+          <Startpage page={page} setPage={setPage}></Startpage>) ||
+          (page === 'Choices' &&
+            <Choices selections={selections} setSelections={setSelections} page={page} setPage={setPage}></Choices>) ||
+          (page === 'Resultspage' && 
+            <Resultspage setPage={setPage} selections={selections}/>) ||
+          (page === 'Datapage' &&
+            <Datapage />)}
       </header>
     </div>
-  );
+ );
 }
 
 export default App;

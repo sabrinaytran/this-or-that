@@ -23,20 +23,23 @@
   margin-top: 2rem;
 }
 
-.cutekitties {
-  width: 400px;
+.Cutekitties {
+  width: 350px;
   height: 200px;
   object-fit: cover;
-}
-
-.Start {
-display: block;
-max-width: 300px;
-margin: auto;
-background-color: white;
-font-size: medium;
-}
-
-.cutekitties {
   margin-bottom: 1rem;
+}
+
+.button {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  background-color: white;
+  font-size: medium;
+}
+
+.Kitty {
+  width: 600px;
+  height: 500px;
+  object-fit: contain;
 }
